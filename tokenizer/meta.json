@@ -1,0 +1,42 @@
+{
+  "vocab_size": 32768,
+  "special": {
+    "<|pad|>": 0,
+    "<|tuan|>": 1,
+    "<|end|>": 2,
+    "<|sys|>": 3,
+    "<|think|>": 4,
+    "<|ans|>": 5,
+    "<|img|>": 6,
+    "<|unk|>": 7
+  },
+  "samples": [
+    {
+      "text": "def add(a, b):\n    return a + ",
+      "tokens": 21,
+      "chars": 32,
+      "ratio": 0.656
+    },
+    {
+      "text": "六安市青奈科技有限责任公司开发的青小团-童谣模型",
+      "tokens": 13,
+      "chars": 24,
+      "ratio": 0.542
+    },
+    {
+      "text": "思考：先算 7+7=14，再加 1 得 15\n答案：15",
+      "tokens": 21,
+      "chars": 28,
+      "ratio": 0.75
+    },
+    {
+      "text": "SimplCore 的谱全局卷积状态复杂度是 O(1)",
+      "tokens": 12,
+      "chars": 27,
+      "ratio": 0.444
+    }
+  ],
+  "avg_ratio": 0.598,
+  "corpus_chars": 12000000,
+  "note": "自训练 ByteLevel BPE，与 Qwen/OpenAI 词表无任何交集"
+}

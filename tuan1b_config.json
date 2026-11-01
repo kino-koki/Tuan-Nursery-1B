@@ -1,0 +1,43 @@
+{
+  "model": "青小团-童谣 Tuan-Nursery-1B",
+  "vendor": "六安市青奈科技有限责任公司",
+  "arch": "SimplCore(SGC) + SimplUnity 融合",
+  "params": 1001205450,
+  "params_B": 1.0012,
+  "config": {
+    "dim": 1024,
+    "ffn": 3072,
+    "num_bases": 32,
+    "num_layers": 74,
+    "vocab_size": 32768,
+    "tokenizer": "自训 ByteLevel BPE（非 Qwen）"
+  },
+  "fusion": {
+    "real_params": 931287040,
+    "init_params": 69918410,
+    "real_ratio": 0.9302,
+    "source": "Qwen3-0.6B (Apache-2.0)",
+    "direct": [
+      "ffn.gate/up/down",
+      "mixer.norm",
+      "ffn.norm"
+    ],
+    "sliced": [
+      "mixer.in_proj ← q_proj[:D]",
+      "mixer.gate_proj ← k_proj",
+      "mixer.out_proj ← o_proj[:, :D]"
+    ],
+    "recomposed": "layer 28..73 两层凸组合(α 确定性)",
+    "own": [
+      "raw_rho",
+      "raw_theta",
+      "coef",
+      "feed",
+      "out_scale",
+      "local_conv",
+      "tok_emb",
+      "head"
+    ]
+  },
+  "shards": 5
+}
